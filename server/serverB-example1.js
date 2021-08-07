@@ -6,11 +6,11 @@ const httpServer = http.createServer((req, res) => {
 	console.log("We received a request");
 })
 
-const webSocket = new WebSocketServer({
-	"httpServer" : httpServer
+const webSocketServer = new WebSocketServer({
+	httpServer : httpServer
 })
 
-webSocket.on("request", request => {
+webSocketServer.on("request", request => {
 	connection = request.accept(null, request.origin);
 	connection.on("open", () => {
 		console.log("websocket connection opened");
